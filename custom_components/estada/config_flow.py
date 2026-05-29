@@ -7,7 +7,8 @@ from homeassistant import config_entries
 from .const import CONF_CLIENT_ID, CONF_MQTT_CLIENT_ID, DOMAIN
 
 
-class EstadaConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
+@config_entries.HANDLERS.register(DOMAIN)
+class EstadaConfigFlow(config_entries.ConfigFlow):
     """Handle an Estada config flow."""
 
     VERSION = 1
@@ -79,3 +80,7 @@ class EstadaConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
             data_schema=self._client_id_schema(),
             errors=errors,
         )
+
+
+# Compatibility alias for environments that import a module-level ConfigFlow.
+ConfigFlow = EstadaConfigFlow
