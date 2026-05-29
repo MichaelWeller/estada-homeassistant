@@ -1,0 +1,26 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Set up Estada",
+        "description": "Enter the Client ID for this Estada installation.",
+        "data": {
+          "client_id": "Client ID"
+        }
+      },
+      "reconfigure": {
+        "title": "Reconfigure Estada",
+        "description": "Update the Client ID for this Estada installation.",
+        "data": {
+          "client_id": "Client ID"
+        }
+      }
+    },
+    "error": {
+      "client_id_required": "Please enter a Client ID."
+    },
+    "abort": {
+      "already_configured": "This Client ID is already configured."
+    }
+  }
+}
