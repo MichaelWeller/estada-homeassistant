@@ -1,0 +1,13 @@
+{
+  "domain": "estada",
+  "name": "Estada",
+  "version": "0.1.0",
+  "documentation": "https://github.com/estada/estada-homeassistant",
+  "issue_tracker": "https://github.com/estada/estada-homeassistant/issues",
+  "dependencies": [],
+  "after_dependencies": ["mqtt"],
+  "codeowners": ["@estada"],
+  "requirements": [],
+  "config_flow": true,
+  "iot_class": "local_push"
+}
