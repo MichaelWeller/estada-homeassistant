@@ -68,7 +68,7 @@ def resolve_service_call(
     if domain in {"number", "input_number"} and service_name == "set_value":
         try:
             merged_params["value"] = float(state_value)
-        except TypeError, ValueError:
+        except (TypeError, ValueError):
             return None
 
     service_data: dict[str, object] = {"entity_id": entity_id, **merged_params}
