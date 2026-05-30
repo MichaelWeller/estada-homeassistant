@@ -843,7 +843,7 @@ class EstadaMqttBridge:
             if transcoder is not None:
                 try:
                     return transcoder.from_knx(value_obj)
-                except ValueError, TypeError:
+                except (ValueError, TypeError):
                     return None
 
         address_filter_transcoder = getattr(
@@ -855,7 +855,7 @@ class EstadaMqttBridge:
                 if callable(matcher) and matcher(destination_address):
                     try:
                         return transcoder.from_knx(value_obj)
-                    except ValueError, TypeError:
+                    except (ValueError, TypeError):
                         return None
 
         return None
@@ -893,7 +893,7 @@ class EstadaMqttBridge:
         if config_entries is not None and hasattr(config_entries, "async_entries"):
             try:
                 installed = bool(config_entries.async_entries("knx"))
-            except TypeError, ValueError:
+            except (TypeError, ValueError):
                 installed = False
 
         config = getattr(self._hass, "config", None)
@@ -919,7 +919,7 @@ def _safe_json_loads(raw_payload: str) -> dict[str, Any] | None:
     """Parse JSON payload and return object payload if valid."""
     try:
         parsed = json.loads(raw_payload)
-    except TypeError, ValueError:
+    except (TypeError, ValueError):
         return None
 
     if not isinstance(parsed, dict):
