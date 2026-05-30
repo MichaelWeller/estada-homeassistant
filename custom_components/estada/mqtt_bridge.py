@@ -255,7 +255,7 @@ class EstadaMqttBridge:
                 if isinstance(payload, dict):
                     if payload.get("source_tag") == "HA":
                         is_loopback = True
-            except TypeError, json.JSONDecodeError:
+            except (TypeError, json.JSONDecodeError):
                 pass
 
             if not is_loopback:
